@@ -42,6 +42,17 @@
 	$(document).on('blur', "[id^=price_]", function(){
 		calculateTotal();
 	});	
+	//update part 3 
+	$(document).on('blur', "[id^=l]", function(){
+		calculateTotal();
+	});	
+	$(document).on('blur', "[id^=w]", function(){
+		calculateTotal();
+	});	
+	$(document).on('blur', "[id^=sq]", function(){
+		calculateTotal();
+	});	
+	//update end 
 	$(document).on('blur', "#taxRate", function(){		
 		calculateTotal();
 	});	
@@ -79,13 +90,25 @@ function calculateTotal(){
 	$("[id^='price_']").each(function() {
 		var id = $(this).attr('id');
 		id = id.replace("price_",'');
+
 		var price = $('#price_'+id).val();
 		var quantity  = $('#quantity_'+id).val();
+
+		// update one
+		var len  = $('#l'+id).val();
+		var wid  = $('#w'+id).val();
+		// update end
 		if(!quantity) {
 			quantity = 1;
 		}
 		var total = price*quantity;
-		$('#total_'+id).val(parseFloat(total));
+		$('#total_'+id).val(parseFloat(total/144));
+
+		// update second
+		var sq = len*wid;
+		$('#sq'+id).val(parseFloat(sq));
+		// update end
+
 		totalAmount += total;			
 	});
 	$('#subTotal').val(parseFloat(totalAmount));	
