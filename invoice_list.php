@@ -11,7 +11,7 @@ $invoice->checkLoggedIn();
 <?php include('inc/container.php');?>
 	<div class="container">		
 	<h2 style="text-align:center;padding:20px;">ApnaPlywood.Inc</h2>   
-  <h2 class="title">Invoice System Portfolio</h2>
+  <h2 class="title">Invoice Portfolio</h2>
 	  <?php include('menu.php');?>			 
     
       <table id="data-table" class="table table-condensed table-striped">

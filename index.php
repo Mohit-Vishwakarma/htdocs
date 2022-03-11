@@ -24,7 +24,7 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 <?php include('inc/container.php');?>
 <div class="row">	
 	<div class="demo-heading">
-		<h2 style="text-align:center">Invoice System </h2>
+		<h2 style="text-align:center">ApnaPlywood.Inc </h2>
 	</div>
 	<div class="login-form">		
 		<h4>Invoice Admin Login:</h4>		

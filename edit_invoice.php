@@ -51,11 +51,16 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 		      			<table class="table table-bordered table-hover" id="invoiceItem">	
 							<tr>
 								<th width="2%"><input id="checkAll" class="formcontrol" type="checkbox"></th>
-								<th width="15%">Item Code</th>
-								<th width="38%">Item Name</th>
-								<th width="15%">Quantity</th>
-								<th width="15%">Price</th>								
-								<th width="15%">Total</th>
+								<th width="10%">Item Code</th>
+								<th width="25%">Item Name</th>
+								<!-- updation part 1 -->
+								<th width="10%">Length</th>
+								<th width="10%">width</th>
+								<th width="10%">Square feet</th>
+								<!--  update three new feilds-->
+								<th width="10%">Quantity</th>
+								<th width="10%">Price</th>								
+								<th width="10%">Total</th>
 							</tr>
 							<?php 
 							$count = 0;
@@ -66,6 +71,11 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 								<td><input class="itemRow" type="checkbox"></td>
 								<td><input type="text" value="<?php echo $invoiceItem["item_code"]; ?>" name="productCode[]" id="productCode_<?php echo $count; ?>" class="form-control" autocomplete="off"></td>
 								<td><input type="text" value="<?php echo $invoiceItem["item_name"]; ?>" name="productName[]" id="productName_<?php echo $count; ?>" class="form-control" autocomplete="off"></td>			
+								<!-- //Updation part -->
+								<td><input type="number" value="<?php echo $invoiceItem["order_item_length"]; ?>" name="l[]" id="l<?php echo $count; ?>" class="form-control quantity" autocomplete="off"></td>
+								<td><input type="number" value="<?php echo $invoiceItem["order_item_width"]; ?>" name="w[]" id="w<?php echo $count; ?>" class="form-control quantity" autocomplete="off"></td>
+								<td><input type="number" value="<?php echo $invoiceItem["order_item_squarefeet"]; ?>" name="sq[]" id="sq<?php echo $count; ?>" class="form-control quantity" autocomplete="off"></td>
+								<!-- //updation part end -->
 								<td><input type="number" value="<?php echo $invoiceItem["order_item_quantity"]; ?>" name="quantity[]" id="quantity_<?php echo $count; ?>" class="form-control quantity" autocomplete="off"></td>
 								<td><input type="number" value="<?php echo $invoiceItem["order_item_price"]; ?>" name="price[]" id="price_<?php echo $count; ?>" class="form-control price" autocomplete="off"></td>
 								<td><input type="number" value="<?php echo $invoiceItem["order_item_final_amount"]; ?>" name="total[]" id="total_<?php echo $count; ?>" class="form-control total" autocomplete="off"></td>

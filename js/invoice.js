@@ -17,6 +17,11 @@
 		htmlRows += '<td><input class="itemRow" type="checkbox"></td>';          
 		htmlRows += '<td><input type="text" name="productCode[]" id="productCode_'+count+'" class="form-control" autocomplete="off"></td>';          
 		htmlRows += '<td><input type="text" name="productName[]" id="productName_'+count+'" class="form-control" autocomplete="off"></td>';	
+	// update part one
+		htmlRows += '<td><input type="number" name="l[]" id="l'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
+		htmlRows += '<td><input type="number" name="w[]" id="w'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
+		htmlRows += '<td><input type="number" name="sq[]" id="sq'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
+	// update end
 		htmlRows += '<td><input type="number" name="quantity[]" id="quantity_'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
 		htmlRows += '<td><input type="number" name="price[]" id="price_'+count+'" class="form-control price" autocomplete="off"></td>';		 
 		htmlRows += '<td><input type="number" name="total[]" id="total_'+count+'" class="form-control total" autocomplete="off"></td>';          
@@ -30,6 +35,7 @@
 		$('#checkAll').prop('checked', false);
 		calculateTotal();
 	});		
+	
 	$(document).on('blur', "[id^=quantity_]", function(){
 		calculateTotal();
 	});	
