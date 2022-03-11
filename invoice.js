@@ -17,6 +17,11 @@
 		htmlRows += '<td><input class="itemRow" type="checkbox"></td>';          
 		htmlRows += '<td><input type="text" name="productCode[]" id="productCode_'+count+'" class="form-control" autocomplete="off"></td>';          
 		htmlRows += '<td><input type="text" name="productName[]" id="productName_'+count+'" class="form-control" autocomplete="off"></td>';	
+	// update part one
+		htmlRows += '<td><input type="number" name="l[]" id="l'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
+		htmlRows += '<td><input type="number" name="w[]" id="w'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
+		htmlRows += '<td><input type="number" name="sq[]" id="sq'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
+	// update end
 		htmlRows += '<td><input type="number" name="quantity[]" id="quantity_'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
 		htmlRows += '<td><input type="number" name="price[]" id="price_'+count+'" class="form-control price" autocomplete="off"></td>';		 
 		htmlRows += '<td><input type="number" name="total[]" id="total_'+count+'" class="form-control total" autocomplete="off"></td>';          
@@ -30,12 +35,24 @@
 		$('#checkAll').prop('checked', false);
 		calculateTotal();
 	});		
+	
 	$(document).on('blur', "[id^=quantity_]", function(){
 		calculateTotal();
 	});	
 	$(document).on('blur', "[id^=price_]", function(){
 		calculateTotal();
 	});	
+	//update part 3 
+	$(document).on('blur', "[id^=l]", function(){
+		calculateTotal();
+	});	
+	$(document).on('blur', "[id^=w]", function(){
+		calculateTotal();
+	});	
+	$(document).on('blur', "[id^=sq]", function(){
+		calculateTotal();
+	});	
+	//update end 
 	$(document).on('blur', "#taxRate", function(){		
 		calculateTotal();
 	});	
@@ -73,13 +90,25 @@ function calculateTotal(){
 	$("[id^='price_']").each(function() {
 		var id = $(this).attr('id');
 		id = id.replace("price_",'');
+
 		var price = $('#price_'+id).val();
 		var quantity  = $('#quantity_'+id).val();
+
+		// update one
+		var len  = $('#l'+id).val();
+		var wid  = $('#w'+id).val();
+		// update end
 		if(!quantity) {
 			quantity = 1;
 		}
 		var total = price*quantity;
-		$('#total_'+id).val(parseFloat(total));
+		$('#total_'+id).val(parseFloat(total/144));
+
+		// update second
+		var sq = len*wid;
+		$('#sq'+id).val(parseFloat(sq));
+		// update end
+
 		totalAmount += total;			
 	});
 	$('#subTotal').val(parseFloat(totalAmount));	
